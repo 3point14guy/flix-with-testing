@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.released
+    # will try to use later with a variable in the .each loop of the index page
+    # variable will get updated w the search type clicked
+    @hits = Movie.hits
+    @flops = Movie.flops
+    @recent = Movie.recent
   end
 
   def show

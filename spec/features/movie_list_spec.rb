@@ -34,4 +34,28 @@ describe "Viewing the list of movies" do
     expect(page).to have_text("$318,412,101.00")
 
   end
+
+  it "shows movies that have a release date in the past" do
+    movie = Movie.create(movie_attributes(released_on: 3.months.ago))
+
+    visit movies_path
+
+    expect(Movie.released).to include(movie)
+  end
+
+  it "doesn't show movies with a future release date" do
+    movie = Movie.create(movie_attributes(released_on: 1.month.from_now))
+
+    visit movies_path
+
+    expect(Movie.released).not_to include(movie)
+  end
+
+  it "lists the movies in reverse chronological order" do
+    movie1 = Movie.create(movie_attributes(released_on: 3.months.ago))
+    movie2 = Movie.create(movie_attributes(released_on: 2.months.ago))
+    movie3 = Movie.create(movie_attributes(released_on: 1.months.ago))
+
+    expect(Movie.released).to eq([movie3, movie2, movie1])
+  end
 end
