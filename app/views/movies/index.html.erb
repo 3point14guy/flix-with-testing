@@ -1,6 +1,7 @@
 <h1><%= pluralize @movies.size, "Movie"%></h1>
 
 <% @movies.each do |movie| %>
+<div class="box">
   <article>
     <header>
       <!-- helper method to display default image if none is given, 2nd argument is for image width -->
@@ -26,5 +27,6 @@
     </table>
   </article>
   <br>
+</div>
 <% end %>
 <br>

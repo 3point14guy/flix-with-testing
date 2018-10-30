@@ -1,3 +1,46 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+
+body, html {
+  background-color: $body-background;
+  color: $black;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+header.primary {
+  background-color: $black;
+  color: $red;
+  padding: 3vh;
+  width: 100%;
+}
+
+img {
+  float: left;
+  margin-right: 20px;
+}
+
+aside {
+  background-color: $dark-gray;
+  width: 25vw;
+}
+
+a {
+  color: $black;
+}
+
+h1 {
+  margin-left: 5vh;
+}
+
+.box {
+  border: 2px solid $body-color;
+  float: left;
+  padding: 5vh 5vw;
+  margin: 5vh 2vw;
+}
+
+footer {
+  clear: both;
+}
