@@ -41,6 +41,17 @@ h1 {
   margin: 5vh 2vw;
 }
 
+.flash {
+
+  &.danger {
+    background-color: $red;
+    font-size: 1.5rem;
+  }
+  &.notice {
+    color: $green;
+  }
+}
+
 footer {
   clear: both;
 }

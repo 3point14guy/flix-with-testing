@@ -1,0 +1,12 @@
+<!-- gets the appropriate styling for each flash notice with the key being the id -->
+
+<% flash.each do |key, value| %>
+  <%= content_tag(:p, value, :class => "flash #{key}") %>
+<% end %>
+
+<!-- rails gives us :notice and :alert for free, but can also do custom flash keys -->
+<!-- if you want to do a :danger key, then in the application controller, -->
+
+<!-- add_flash_types(:danger) -->
+
+<!-- then you can create different css for that new key -->
