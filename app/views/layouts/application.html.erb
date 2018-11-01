@@ -11,6 +11,13 @@
 
   <body>
     <%= render 'layouts/header' %>
+
+    <% if flash[:notice] %>
+      <p>
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
+
     <%= render 'layouts/aside' %>
 
     <%= yield %>
