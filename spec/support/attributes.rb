@@ -16,6 +16,7 @@ def review_attributes(overrides = {})
   {
     name: "Mr. Movie Guy",
     comment: "It was great!",
-    stars: 5
+    stars: 5,
+    location: "somewhere"
   }.merge(overrides)
 end
