@@ -11,3 +11,11 @@ def movie_attributes(overrides = {})
     image_file_name: "moviemarathon.png"
   }.merge(overrides)
 end
+
+def review_attributes(overrides = {})
+  {
+    name: "Mr. Movie Guy",
+    comment: "It was great!",
+    stars: 5
+  }.merge(overrides)
+end
