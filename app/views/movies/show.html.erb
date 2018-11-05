@@ -32,6 +32,7 @@
       <td><%= @movie.duration %></td>
     </tr>
   </table>
+  <%= link_to "Reviews", movie_reviews_path(@movie)%>
 </article>
 
 <%= link_to "Edit", edit_movie_path(@movie) %> |
