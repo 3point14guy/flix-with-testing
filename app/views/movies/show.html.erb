@@ -31,11 +31,17 @@
       <th>Duration:</th>
       <td><%= @movie.duration %></td>
     </tr>
+    <tr>
+      <th></th>
+      <td><%= link_to "See Reviews", movie_reviews_path(@movie)%></td>
+    </tr>
   </table>
-  <%= link_to "Reviews", movie_reviews_path(@movie)%> |
-  <%= link_to "Write a Review", new_movie_review_path(@movie) %>
-</article>
 
+  <br><br>
+  <%#= link_to "Write a Review", new_movie_review_path(@movie) %>
+  <%= render 'reviews/form' %>
+</article>
+<br>
 <%= link_to "Edit", edit_movie_path(@movie) %> |
 <%= link_to "Delete", movie_path(@movie), method: :delete, data: {confirm: "Are you sure?"} %>
 <br>
