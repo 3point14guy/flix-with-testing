@@ -4,7 +4,8 @@
 
 <ul>
   <% @reviews.each do |r| %>
-    <li><%= pluralize(r.stars, "star") %></li>
+    <!-- <li><%#= pluralize(r.stars, "star") %></li> -->
+    <li><%= display_stars(r) %></li>
     <li><%= r.comment %></li>
     <li><%= r.name %> - <%= r.location %>  <%= time_ago_in_words(r.created_at)%> ago</li><br>
   <% end %>

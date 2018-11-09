@@ -14,6 +14,7 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def flop?
+    #self is implicit and not really needed inside
     self.total_gross < 50000000
   end
 
@@ -32,4 +33,9 @@ class Movie < ApplicationRecord
   def self.recent
     order("created_at desc").limit(3)
   end
+
+  def average_stars
+    reviews.average(:stars)
+  end
+
 end
