@@ -5,7 +5,12 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
+# included because of security update
 gem 'loofah', ">= 2.2.3"
+# allows for file uploads
+gem 'paperclip', "6.1.0"
+# helps talk to aws
+gem 'aws-sdk', '3.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

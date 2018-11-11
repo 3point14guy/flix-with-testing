@@ -1,17 +1,24 @@
 class Movie < ApplicationRecord
-
+  # this tells rails to expect a movie_id foreign key column in the table wrapped by the Review model
+  has_many :reviews, dependent: :destroy
+  # from paperclip
+  has_attached_file :image
+  
   validates :title, :released_on, :duration, presence: true
   validates :description, length: {minimum: 25}
   validates :total_gross, numericality: {greater_than_or_equal_to: 0}
-  validates :image_file_name, allow_blank: true, format: {
-    with: /\w+\.(gif|jpg|png)\z/i,
-    message: "must reference a GIF, JPG, or PNG image"
-  }
+  # # this one was for local file upload
+  # validates :image_file_name, allow_blank: true, format: {
+  #   with: /\w+\.(gif|jpg|png)\z/i,
+  #   message: "must reference a GIF, JPG, or PNG image"
+  # # this one is for use with paperclip and aws-s3
+  validates_attachment :image,
+    :content_type => { :content_type => ['image/jpeg', 'image/png'] },
+    :size => { :less_than => 1.megabyte }
+
   RATINGS = %w(G PG PG-13 R NC-17)
   validates :rating, inclusion: {in: RATINGS}
 
-  # this tells rails to expect a movie_id foreign key column in the table wrapped by the Review model
-  has_many :reviews, dependent: :destroy
 
   def flop?
     #self is implicit and not really needed inside
