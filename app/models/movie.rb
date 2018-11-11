@@ -13,7 +13,7 @@ class Movie < ApplicationRecord
   #   message: "must reference a GIF, JPG, or PNG image"
   # # this one is for use with paperclip and aws-s3
   validates_attachment :image,
-    # :content_type => { :content_type => ['image/jpeg', 'image/png'] },
+    :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/png"] },
     :size => { :less_than => 1.megabyte }
 
   RATINGS = %w(G PG PG-13 R NC-17)
