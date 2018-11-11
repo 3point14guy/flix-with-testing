@@ -5,7 +5,7 @@
   <article>
     <header>
       <!-- helper method to display default image if none is given, 2nd argument is for image width -->
-      <%= image_default(movie, 75) %>
+      <%= image_default(movie, 75, :small) %>
       <h2><%= link_to movie.title, movie %></h2>
       <h3><%= format_average_stars(movie) %></h3>
     </header>

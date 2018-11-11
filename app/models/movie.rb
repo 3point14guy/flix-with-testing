@@ -1,8 +1,12 @@
 class Movie < ApplicationRecord
   # this tells rails to expect a movie_id foreign key column in the table wrapped by the Review model
   has_many :reviews, dependent: :destroy
-  # from paperclip
-  has_attached_file :image
+  # from paperclip and imagemagick
+  has_attached_file :image, styles: {
+  large: "150X222>",
+  small: "90x133>",
+  thumb: "50x74>"
+}
 
   validates :title, :released_on, :duration, presence: true
   validates :description, length: {minimum: 25}

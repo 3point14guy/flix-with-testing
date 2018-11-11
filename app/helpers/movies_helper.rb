@@ -7,14 +7,14 @@ module MoviesHelper
     end
   end
 
-  def image_default(movie, width)
+  def image_default(movie, width, imagemagick)
     # changing bc paperclip saves files in the public folder.  exists? comes from paperclip
     if movie.image.exists?
-      image_tag movie.image.url, width: width
+      image_tag movie.image.url(imagemagick)
     elsif movie.image_file_name.blank?
       image_tag 'moviemarathon.png', width: width
     else
-      image_tag movie.image_file_name
+      image_tag movie.image_file_name, width: width
     end
   end
 
