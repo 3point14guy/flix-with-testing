@@ -1,0 +1,15 @@
+<h1>Account Info</h1>
+
+<article class="">
+  <p>
+    <%= @user.name %>
+    <%= @user.email %>
+  </p>
+
+  <footer>
+    <nav>
+      <%= link_to "Edit Account", edit_user_path(@user) %> |
+      <%= link_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure?" } %>
+    </nav>
+  </footer>
+</article>

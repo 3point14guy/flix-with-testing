@@ -1,0 +1,25 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/errors', object: @user %>
+  <fieldset>
+    <p>
+      <%= f.label :name, size: 40, autofocus: true  %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %>
+      <%= f.email_field :email, size: 40 %>
+    </p>
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, size: 40 %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, size: 40 %>
+    </p>
+    <p>
+      <%= f.submit "Create Account" %>
+    </p>
+  </fieldset>
+<% end %>
+<%= link_to "Cancel", root_path %>

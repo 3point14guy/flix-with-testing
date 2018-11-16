@@ -1,0 +1,11 @@
+<article class="">
+  <header>
+    <h1>Nixflix has <%= pluralize(@users.size, "user") %></h1>
+  </header>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to user.name, user %> -
+      <%= user.email %></li>
+    <% end %>
+  </ul>
+</article>
