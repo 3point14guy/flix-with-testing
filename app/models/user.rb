@@ -6,4 +6,5 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: /\A\S+@\S+\z/
   validates :password, length: { minimum: 10, allow_blank: true }
+  validates :username, uniqueness: true
 end
