@@ -18,7 +18,7 @@ class Movie < ApplicationRecord
   # # this one is for use with paperclip and aws-s3
   validates_attachment :image,
     :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/png"] },
-    :size => { :less_than => 1.megabyte }
+    :file_size => { :less_than => 1.megabyte }
 
   RATINGS = %w(G PG PG-13 R NC-17)
   validates :rating, inclusion: {in: RATINGS}

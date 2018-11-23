@@ -3,7 +3,6 @@ require 'rails_helper'
 describe "A movie" do
   it "requires a title" do
     movie = Movie.new(title: "")
-
     movie.valid?  # populates errors
 
     expect(movie.errors[:title].any?).to eq(true)
@@ -11,7 +10,6 @@ describe "A movie" do
 
   it "requires a description" do
     movie = Movie.new(description: "")
-
     movie.valid?
 
     expect(movie.errors[:description].any?).to eq(true)
@@ -19,7 +17,6 @@ describe "A movie" do
 
   it "requires a released on date" do
     movie = Movie.new(released_on: "")
-
     movie.valid?
 
     expect(movie.errors[:released_on].any?).to eq(true)
@@ -66,7 +63,7 @@ describe "A movie" do
   end
 
   it "accepts properly formatted image file names" do
-    file_names = %w[e.png movie.png movie.jpg movie.gif MOVIE.GIF]
+    file_names = %w[e.png movie.png movie.jpg movie.jpeg MOVIE.JPEG]
     file_names.each do |file_name|
       movie = Movie.new(image_file_name: file_name)
       movie.valid?

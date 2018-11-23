@@ -1,8 +1,8 @@
 require "rails_helper"
 
-describe  "Editing the form" do
+describe  "Editing a movie" do
   it "updates a movie and shows the new updates" do
-    movie = Movie.create(movie_attributes)
+    movie = Movie.create!(movie_attributes)
 
     visit movie_url(movie)
 
@@ -21,7 +21,7 @@ describe  "Editing the form" do
   end
 
   it "does not update the movie if it's invalid" do
-    movie = Movie.create(movie_attributes)
+    movie = Movie.create!(movie_attributes)
 
     visit edit_movie_url(movie)
 

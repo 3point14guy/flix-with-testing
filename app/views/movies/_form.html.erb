@@ -1,55 +1,55 @@
-<%= form_for @movie do |f| %>
+<%= form_for(@movie) do |f| %>
   <%= render 'shared/errors', object: @movie %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title, autofocus: true %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, cols: 40, rows: 7 %>
-  </p>
-
-  <p>
-    <%= f.label :released_on %><br>
-    <!-- <%#= f.date_select :released_on %> --> <!-- slightly different format in browser -->
-    <%= f.date_field :released_on %>
-  </p>
-
-  <p>
-    <%= f.label :rating %><br>
-    <%= f.select :rating, Movie::RATINGS, prompt: "Pick one" %>
-  </p>
-
-  <p>
-    <%= f.label :cast %><br>
-    <%= f.text_field :cast %>
-  </p>
-
-  <p>
-    <%= f.label :director %><br>
-    <%= f.text_field :director %>
-  </p>
-
-  <p>
-    <%= f.label :duration %><br>
-    <%= f.text_field :duration %>
-  </p>
-  <p>
-    <%= image_default(@movie, 50, :thumb) %>
-  </p>
-  <p>
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </p>
-
-
-  <p>
-    <%= f.label :total_gross %><br>
-    <%= f.number_field :total_gross, step: 1000000 %>
-  </p>
-  <p>
-    <%= f.submit %> |
-    <%= link_to "cancel", movies_path %>
-  </p>
+  <fieldset>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, autofocus: true %>
+    </p>
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, cols: 40, rows: 7 %>
+    </p>
+    <p>
+      <%= f.label :released_on %><br>
+      <!-- <%#= f.date_select :released_on %> --> <!-- slightly different format in browser -->
+      <%= f.date_field :released_on %>
+    </p>
+    <p>
+      <%= f.label :rating %><br>
+      <%= f.select :rating, Movie::RATINGS, prompt: "Pick one" %>
+    </p>
+    <p>
+      <%= f.label :cast %><br>
+      <%= f.text_field :cast %>
+    </p>
+    <p>
+      <%= f.label :director %><br>
+      <%= f.text_field :director %>
+    </p>
+    <p>
+      <%= f.label :duration %><br>
+      <%= f.text_field :duration %>
+    </p>
+    <p>
+      <%= image_default(@movie, 50, :thumb) %>
+    </p>
+    <p>
+      <%= f.label :image, "Image file name" %><br>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.label :total_gross %><br>
+      <%= f.number_field :total_gross, step: 1000000 %>
+    </p>
+    <p>
+      <% if @movie.new_record? %>
+        <%= f.submit "Create Movie" %>
+      <% else %>
+        <%= f.submit "Update Movie"%>
+      <% end%>
+    </p>
+    <p>
+      <%= link_to "cancel", movies_path %>
+    </p>
+  </fieldset>
 <% end %>
