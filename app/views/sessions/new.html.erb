@@ -10,7 +10,12 @@
 <fieldset>
   <p>
     <%= label_tag :email %>
-    <%= email_field_tag :email, nil, required: true, autofocus: true %>
+    <%= email_field_tag :email, nil, autofocus: true %>
+  </p>
+  <h5>OR</h5>
+  <p>
+    <%= label_tag :username %>
+    <%= text_field_tag :username, nil %>
   </p>
   <p>
     <%= label_tag :password %>
