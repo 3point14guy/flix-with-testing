@@ -18,6 +18,9 @@ describe "Creating a user" do
     expect(page).to have_text("some name")
     expect(page).to have_text("some@name.com")
     expect(page).to have_text("Thanks for signing up!")
+    expect(page).to have_link("some name")
+    expect(page).not_to have_link("Sign Up")
+    expect(page).not_to have_link("Sign In")
   end
 
   it "does not save the user if it's invalid" do
