@@ -3,6 +3,7 @@ require "rails_helper"
 describe "deleting a user" do
   it "will remove the user from the db and show updated users list" do
     user = User.create!(user_attributes)
+    sign_in(user)
     visit user_url(user)
     click_link "Delete Account"
 
